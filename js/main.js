@@ -115,12 +115,12 @@ updateRestaurants = () => {
   const neighborhood = nSelect[nIndex].value;
 
   DBHelper.fetchRestaurantByCuisineAndNeighborhood(cuisine, neighborhood, (error, restaurants) => {
-    // if (error) { // Got an error!
-    //   //console.error(error);
-    // } else {
-    //   resetRestaurants(restaurants);
-    //   fillRestaurantsHTML();
-    // }
+    if (error) { // Got an error!
+      console.error(error);
+    } else {
+      resetRestaurants(restaurants);
+      fillRestaurantsHTML();
+    }
   })
 }
 
@@ -161,6 +161,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.name;
   li.append(image);
 
   const name = document.createElement('h1');
@@ -198,7 +199,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 
 }
-/* addMarkersToMap = (restaurants = self.restaurants) => {
+/*addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
@@ -208,3 +209,15 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
+
+if('serviceWorker' in navigator) {
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('/sw.js').then(function (registration){
+      console.log('service worker successfully registered on scope',registration.scope);
+
+  }).catch(function(error) {
+    console.log('service worker failed to register');
+  });
+});
+
+}
