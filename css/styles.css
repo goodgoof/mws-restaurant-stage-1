@@ -22,7 +22,8 @@ a {
 	color: orange;
 	text-decoration: none;
 }
-a:hover, a:focus {
+a:hover,
+a:focus {
 	color: #3397db;
 	text-decoration: none;
 }
@@ -39,6 +40,8 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
+	display: flex;
+	flex-direction:column;
 }
 #footer {
   background-color: #444;
@@ -68,21 +71,17 @@ nav h1 a {
   text-transform: uppercase;
 }
 #breadcrumb {
-    padding: 10px 40px 16px;
+    /* padding: 10px 40px 16px; */
     list-style: none;
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
+    /* width: calc(50% - 80px); */
 }
 
-li .skip-link {
-	text-align: center;
-	width: 100%;
-	height: 60px;
 
 
-}
+} */
 /* Display list items side by side */
 #breadcrumb li {
     display: inline;
@@ -222,7 +221,7 @@ li .skip-link {
 .inside #footer {
   bottom: 0;
   position: absolute;
-  width: 50%;
+  width: 100%;
 }
 #restaurant-name {
   color: #f18200;
@@ -318,7 +317,11 @@ li .skip-link {
 	}
 
 	.inside #maincontent {
-		display: flex;
-		flex-direction: column;
+		display:flex;
+		/* flex-direction: column; */
+	}
+
+	.inside #footer {
+		width: 100%;
 	}
 }

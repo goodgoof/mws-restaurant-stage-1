@@ -76,6 +76,7 @@ initMap = () => {
         center: [40.722216, -73.987501],
         zoom: 12,
         scrollWheelZoom: false
+        
       });
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
     mapboxToken: 'pk.eyJ1IjoiYW5qYWxpMTMiLCJhIjoiY2ptaHZ0ZXkzMGVuMDNxb21maHJmbXFicyJ9.KBe5J7znj8X6qyvqEA2BxQ',
