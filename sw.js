@@ -41,8 +41,17 @@ self.addEventListener('fetch', function(e) {
       }
       else {
         console.log('Could not find', e.request,'in cache, FETCHING!');
-        return fetch(e.request);
+        return fetch(e.request)
+        .then(function(response){
+          caches.open('v1').then(function(cache){
+            cache.put(e.request,response);
+          })
+          return response;
+        })
+        .catch(function(err){
+          console.error(err);
+        });
       }
     })
   );
-}
+})
