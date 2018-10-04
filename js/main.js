@@ -64,7 +64,7 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
     const option = document.createElement('option');
     option.innerHTML = cuisine;
     option.value = cuisine;
-    option.label ="View details of" restaurant.name;
+    // option.label ="View details of " + restaurant.name;
     select.append(option);
   });
 }
@@ -166,7 +166,7 @@ createRestaurantHTML = (restaurant) => {
   image.alt = restaurant.name;
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
   li.append(name);
 
@@ -180,7 +180,7 @@ createRestaurantHTML = (restaurant) => {
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
-  more.label= 'View details of' restaurant.name
+  more.label= "View details of " + restaurant.name
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
